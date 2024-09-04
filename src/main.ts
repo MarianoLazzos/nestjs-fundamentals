@@ -7,7 +7,11 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,
     forbidNonWhitelisted: true,
-    transform: true
+    transform: true,
+    transformOptions: {
+      enableImplicitConversion: true // this transforms all values on its DTO @Type(() => Number) example no needed
+    }
+
   }))
   await app.listen(3000);
 }
